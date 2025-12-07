@@ -40,10 +40,10 @@ const links = [
 ];
 
 const Sidebar = () => {
-   const user = useSelector((state: any) => state.jwt);
+  const user = useSelector((state: any) => state.user);
   return (
     <div className="flex">
-<div className="w-64"></div>
+      <div className="w-64"></div>
       <div className="fixed w-64 h-screen overflow-y-auto bg-red-200 flex flex-col gap-7 items-center py-3">
         <div className="fixed z-[500] py-3 text-red-500 flex gap-1 items-center">
           <IconHeartbeat size={40} stroke={2.5} />
@@ -61,9 +61,9 @@ const Sidebar = () => {
             />
           </div>
           <div className="text-center">
-            <span className="font-medium">{user.name||"Amit"}</span>
+            <span className="font-medium">{user.name || "Guest"}</span>
             <Text c="dimmed" size="xs">
-              {user.role || "Admin"}
+              {user.role || "N/A"}
             </Text>
           </div>
         </div>
@@ -87,8 +87,7 @@ const Sidebar = () => {
           })}
         </div>
       </div>
-      </div>
-
+    </div>
   );
 };
 

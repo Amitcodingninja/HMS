@@ -5,7 +5,7 @@ import {
   IconLayoutSidebarLeftCollapseFilled,
 } from "@tabler/icons-react";
 import ProfileMenu from "./ProfileMenu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeJwt } from "../../Slices/JwtSlice";
 import { removeUser } from "../../Slices/UserSlice";
@@ -13,9 +13,11 @@ import { removeUser } from "../../Slices/UserSlice";
 const Header = () => {
   const jwt = useSelector((state: any) => state.jwt);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleLogout = () => {
     dispatch(removeJwt());
     dispatch(removeUser());
+    navigate("/login");
   };
   return (
     <div className="bg-white w-full h-16 flex justify-between px-5 items-center">

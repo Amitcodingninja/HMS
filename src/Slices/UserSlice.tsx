@@ -7,18 +7,14 @@ const userSlice = createSlice({
     ? jwtDecode(localStorage.getItem("token") || "")
     : {},
   reducers: {
-    setUser: (state, action) => {
-        // localStorage.setItem("token", action.payload);
-        state = action.payload;
-        return state;
+    setUser: (_state, action) => {
+      return action.payload;
     },
-    removeUser: (state) => {
-    //   localStorage.removeItem("token");
-      state = {};
-      return state;
+    removeUser: () => {
+      return {};
     },
   },
 });
 
-export const { removeUser ,setUser } = userSlice.actions;
+export const { removeUser, setUser } = userSlice.actions;
 export default userSlice.reducer;
